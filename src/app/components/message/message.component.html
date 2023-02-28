@@ -1,0 +1,6 @@
+<ion-card *ngIf="messageService.message | async" [ngClass]="messageService.messageCss | async">
+  <div>
+    <ion-label>{{ messageService.message | async }}</ion-label>
+    <ion-badge slot="end">{{ messageService.messageTimer | async }}</ion-badge>
+  </div>
+</ion-card>

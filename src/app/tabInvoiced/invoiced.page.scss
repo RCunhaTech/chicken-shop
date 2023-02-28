@@ -1,0 +1,39 @@
+.message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.message ion-card {
+    width: auto;
+    height: auto;
+    padding: 20px;
+    align-items: center;
+    & p{
+        padding-top: 10px;
+        text-align: center;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.tool {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.tool ion-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    font-size: 18px;
+
+    & ion-label {
+        padding: 7px;
+    }
+}

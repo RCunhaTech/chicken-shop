@@ -1,0 +1,49 @@
+
+
+.success div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: rgb(1, 133, 40)!important;
+    color: white;
+    width: auto;
+    height: 50px;
+    padding: 10px;
+    & ion-badge {
+        background-color: rgb(1, 133, 40)!important;
+    }
+}
+
+.info div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: rgb(9, 65, 170)!important;
+    color: white;
+    width: auto;
+    height: 50px;
+    padding: 10px;
+    & ion-badge {
+        background-color: rgb(9, 65, 170)!important;
+    }
+}
+
+.danger div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: rgb(170, 9, 9)!important;
+    color: white;
+    width: auto;
+    height: 50px;
+    padding: 10px;
+    & ion-badge {
+        background-color: rgb(170, 9, 9)!important;
+    }
+}

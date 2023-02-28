@@ -1,0 +1,11 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ labelTitle }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <form (submit)="onSubmit()">
+      <input #autoFocus type="text" name="quantity" [(ngModel)]="quantity">
+      <ion-button type="submit">{{ labelButton }}</ion-button>
+    </form>
+  </ion-card-content>
+</ion-card>

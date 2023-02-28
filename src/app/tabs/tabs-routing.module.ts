@@ -4,31 +4,35 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'chicken',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+        path: 'cart',
+        loadChildren: () => import('../tabCart/cart.module').then(m => m.Tab1PageModule)
       },
       {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        path: 'invoiced',
+        loadChildren: () => import('../tabInvoiced/invoiced.module').then(m => m.Tab2PageModule)
       },
       {
-        path: 'tab3',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        path: 'product',
+        loadChildren: () => import('../tab-product/tab-product.module').then(m => m.TabProductPageModule)
+      },
+      {
+        path: 'options',
+        loadChildren: () => import('../tabOptions/options.module').then(m => m.Tab3PageModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/chicken/cart',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/chicken/cart',
     pathMatch: 'full'
   }
 ];

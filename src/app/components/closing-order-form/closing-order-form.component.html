@@ -1,0 +1,69 @@
+<ion-content>
+  <div class="spinner" *ngIf="loadSpinner">
+    <ion-spinner name="lines" color="primary"></ion-spinner>
+    <span>Finalizando...</span>
+  </div>
+  <form [hidden]="loadSpinner">
+    <ion-header>
+      <ion-toolbar color="dark">
+        <ion-title>Total do Pedido</ion-title>
+        <ion-title slot="end" style="color:aqua">{{ order.total | currency }}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-card>
+      <ion-radio-group name="payment" [(ngModel)]="payment" (ionFocus)="selectPayment($event)">
+        <ion-item>
+          <ion-label>Dinheiro</ion-label>
+          <ion-label slot="end">m</ion-label>
+          <ion-radio slot="end" value="dinheiro"></ion-radio>
+          <img slot="start" src="../../../assets/money32.png">  
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Cartão Débito</ion-label>
+          <ion-label slot="end">d</ion-label>
+          <ion-radio slot="end" value="cartao-debito"></ion-radio>
+          <img slot="start" src="../../../assets/debit32.png">
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Cartão Crédito</ion-label>
+          <ion-label slot="end">c</ion-label>
+          <ion-radio slot="end" value="cartao-credito"></ion-radio>
+          <img slot="start" src="../../../assets/credit32.png">
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Pix</ion-label>
+          <ion-label slot="end">p</ion-label>
+          <ion-radio slot="end" value="pix"></ion-radio>
+          <img slot="start" src="../../../assets/pix32.png">
+        </ion-item>
+      </ion-radio-group>
+    </ion-card>
+    <ion-card>
+      <ion-row>
+        <ion-col size="4">
+          <img [src]="changeImage()" style="width:'100px'">
+        </ion-col>
+        <ion-col size="3">
+          <ion-item [hidden]="payment !== 'dinheiro'">
+            <ion-label position="floating">Pagamento</ion-label>
+            <ion-input type="text" name="valor" (ionChange)="returnCash($event)"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="5">
+          <div class="cash" [hidden]="payment !== 'dinheiro'">
+            <ion-label>Troco: {{ cash | currency }}</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label>{{ printLabel }}</ion-label>
+        <ion-toggle slot="end" [checked]="printOrder" (ionChange)="enablePrint()"></ion-toggle>
+      </ion-item>
+    </ion-card>
+  </form>
+</ion-content>

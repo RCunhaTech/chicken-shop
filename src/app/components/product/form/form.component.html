@@ -1,0 +1,118 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{ headerTitle }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="enableSessionMonitoring()">
+          <ion-icon name="videocam-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="enableSessionCode()">
+          <ion-icon name="qr-code-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="close()">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <form>
+    <app-message></app-message>
+    <ion-list>
+      <ion-row [hidden]="viewSessionCode">
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Código Manual</ion-label>
+            <ion-input type="text" maxlength="4" name="code" [(ngModel)]="product.code"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Código de Barras</ion-label>
+            <ion-input type="text" name="barcode" [(ngModel)]="product.barcode"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row [hidden]="viewSessionMonitoring">
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Nome Curto</ion-label>
+            <ion-input type="text" name="shortName" [(ngModel)]="product.shortName"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Monitorar</ion-label>
+            <ion-toggle slot="end" [checked]="product.monitoring" name="monitoring" [(ngModel)]="product.monitoring"></ion-toggle>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-item>
+        <ion-label position="floating">Descrição</ion-label>
+        <ion-input type="text" name="description" [(ngModel)]="product.description" ></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Preço de Custo</ion-label>
+            <ion-input type="text" name="costPrice" [(ngModel)]="product.costPrice"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Preço de Venda</ion-label>
+            <ion-input type="text" name="price" [(ngModel)]="product.price"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="4">
+          <ion-item>
+            <ion-label position="floating">Estoque Atual</ion-label>
+            <ion-input type="tel" name="stock" [(ngModel)]="product.stock"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="4">
+          <ion-item>
+            <ion-label position="floating">Estoque Baixo</ion-label>
+            <ion-input type="tel" name="lowStock" [(ngModel)]="product.lowStock"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="4">
+          <ion-item>
+            <ion-label position="floating">Estoque Ruim</ion-label>
+            <ion-input type="tel" name="badStock" [(ngModel)]="product.badStock"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Unidade de Medida</ion-label>
+            <ion-select interface="popover" name="measure" [(ngModel)]="product.measure" placeholder="Selecione o tipo">
+              <ion-select-option value="UN">UNIDADE</ion-select-option>
+              <ion-select-option value="KG">KILOGRAMA</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label>Activar/Desativar</ion-label>
+            <ion-toggle slot="end" [checked]="product.active" name="active" [(ngModel)]="product.active"></ion-toggle>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button color="warning" expand="block"(click)="close()">Cancelar</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button color="primary" expand="block" (click)="save()">Salvar</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-list>
+  </form>
+</ion-content>

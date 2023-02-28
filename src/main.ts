@@ -10,3 +10,4 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
+document.body.setAttribute('theme',localStorage.getItem('@chicken.theme')||'ligth')

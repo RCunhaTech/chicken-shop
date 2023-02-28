@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Faturamentos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="grid-outline" [hidden]="true"></ion-icon>
+        <ion-icon name="reader-outline" [hidden]="false"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="clearList | async">
+  <div class="content">
+    <ion-row class="tool">
+      <ion-col size="12" size-xs="12" size-sm="6" size-md="4" size-lg="2">
+        <ion-card>
+          <ion-label>Faturamentos</ion-label>
+          <span>{{ orderService.ordersCount | async }}</span>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-xs="12" size-sm="6" size-md="4" size-lg="2">
+        <ion-card>
+          <ion-label>Pendentes</ion-label>
+          <span>{{ orderService.paymentPending | async | currency }}</span>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-xs="12" size-sm="6" size-md="4" size-lg="2">
+        <ion-card>
+          <ion-label>Pix</ion-label>
+          <span>{{ orderService.paymentPix | async | currency }}</span>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-xs="12" size-sm="6" size-md="4" size-lg="2">
+        <ion-card>
+          <ion-label>Cartão</ion-label>
+          <span>{{ orderService.paymentCard | async | currency }}</span>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-xs="12" size-sm="6" size-md="4" size-lg="2">
+        <ion-card>
+          <ion-label>Dinheiro</ion-label>
+          <span>{{ orderService.paymentMoney | async | currency }}</span>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-xs="12" size-sm="6" size-md="4" size-lg="2">
+        <ion-card>
+          <ion-label>Total</ion-label>
+          <span>{{ orderService.paymentTotal | async | currency }}</span>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div [hidden]="true">
+    <ion-list>
+      <ion-item>
+        <ion-label>Relatório do dia</ion-label>
+        <span slot="end">20/01/2023</span>
+      </ion-item>
+      <ion-item>
+        <ion-label>Pendentes</ion-label>
+        <span slot="end">3</span>
+      </ion-item>
+      <ion-item>
+        <ion-label>Pendentes</ion-label>
+        <span slot="end">3</span>
+      </ion-item>
+      <ion-item>
+        <ion-label>Pendentes</ion-label>
+        <span slot="end">3</span>
+      </ion-item>
+      <ion-item>
+        <ion-label>Pendentes</ion-label>
+        <span slot="end">3</span>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-row>
+    <ion-col size="12" size-xs="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let order of orders | async">
+      <app-invoiced-card
+        [created]="order.created"
+        [total]="order.total"
+        [payment]="order.payment"
+        (click)="openMenu(order)"
+        >
+      </app-invoiced-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-content [hidden]="clearList | async">
+    <ion-col size="12" class="message">
+      <ion-card>
+        <ion-card-content>
+          <img src="../../assets/clipboard.png" alt="clearlist"/>
+          <p>Lista Vazia...</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+</ion-content>

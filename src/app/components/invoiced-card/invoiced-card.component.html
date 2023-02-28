@@ -1,0 +1,9 @@
+<ion-card>
+  <ion-card-content [ngClass]="payment">
+    <p>Hora:{{ created }}</p>
+    <p>Qtde:{{ quantity }}</p>
+    <p>Preço:{{ price | currency }}</p>
+    <hr>
+    <p><strong class="total">Preço:{{ total | currency }}</strong></p>
+  </ion-card-content>
+</ion-card>

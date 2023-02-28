@@ -1,0 +1,48 @@
+ion-card {
+    color:rgb(0, 0, 0);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: top;
+    background-color: rgb(238, 238, 238);
+}
+ion-card-content {
+    text-align: start;
+    padding-right: 10px;
+}   
+.total {
+    font-size: 16px;
+    text-align: center;
+    color: rgb(34, 36, 151);
+}
+
+.pix {
+    color: blue;
+    background-image: url('../../../assets/pix32.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    margin-right: 10px;
+}
+
+.cartao {
+    background-image: url('../../../assets/creditcard.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+}
+
+.dinheiro {
+    background-image: url('../../../assets/money32.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    margin-right: 10px;
+}
+
+.pendente {
+    background-image: url('../../../assets/pending.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    margin-right: 10px;
+}

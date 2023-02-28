@@ -24,3 +24,73 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import '~ngx-print-element/styles.css';
+
+:root {
+	--ion-color-next: #005a66;
+	--ion-color-next-rgb: 0,90,102;
+	--ion-color-next-contrast: #ffffff;
+	--ion-color-next-contrast-rgb: 255,255,255;
+	--ion-color-next-shade: #004f5a;
+	--ion-color-next-tint: #1a6b75;
+
+}
+
+.ion-color-next {
+	--ion-color-base: var(--ion-color-next);
+	--ion-color-base-rgb: var(--ion-color-next-rgb);
+	--ion-color-contrast: var(--ion-color-next-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-next-contrast-rgb);
+	--ion-color-shade: var(--ion-color-next-shade);
+	--ion-color-tint: var(--ion-color-next-tint);
+}
+
+
+
+.my-custom-modal-css .modal-wrapper {
+    height: 20%;
+    top: 80%;
+    position: absolute; 
+    display: block;  
+ }
+ 
+.action-sheets-product {
+    
+    --color:#ececec;
+    --background:#161616;
+    --button-color:#ececec;
+    .btn-new:hover {
+        color: #00ffff;
+        ion-icon {
+            color: #00ffff;
+        }
+    }
+
+    .btn-view:hover {
+        color: #00ffff;
+        ion-icon {
+            color: #00ffff;
+        }
+    }
+
+    .btn-edit:hover {
+        color: #00ffff;
+        ion-icon {
+            color: #00ffff;
+        }
+    }
+
+    .btn-remove:hover {
+        color: #00ffff;
+        ion-icon {
+            color: #00ffff;
+        }
+    }
+
+    .btn-filter:hover {
+        color: #00ffff;
+        ion-icon{
+            color: #00ffff;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="next">
+    <ion-title>Opções do Sistema</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngFor="let i of options">
+    <ion-item (click)="openModal(i)">
+      <ion-label>{{ i.header }}</ion-label>
+      <p>{{ i.value | async }}</p>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Status Imprimir Recibo: {{ print ? 'Impressão Ativada' : 'Impressão Desativada' }}</ion-label>
+      <ion-toggle [checked]="print" (ionChange)="confirmPrint($event)"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Cor do Thema: {{ stateSevice.theme | async }}</ion-label>
+      <ion-select [value]="theme" name="theme" placeholder="Selecione a cor do thema" (ionChange)="changeTheme($event)">
+        <ion-select-option value="Dark">Dark</ion-select-option>
+        <ion-select-option value="Cinza">Cinza</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Color</ion-label>
+      <ion-input type="color" name="color" value="color"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>
